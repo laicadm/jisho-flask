@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+JP:wght@200..900&family=Sacramento&display=swap');
+
+.home-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-group {
+    min-width: 600px;
+}
+
+.home-title {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sacramento-regular {
+    font-family: "Sacramento", cursive;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.noto-serif-jp {
+    font-family: "Noto Serif JP", serif;
+    font-optical-sizing: auto;
+}
+
+.justified-text {
+    text-align: justify;
+}
+
+.pos-badge {
+    margin-bottom: 0px;
+    color: gray;
+}
+
+.no-result {
+    min-height: 50vh;
+}
+
+.nav-pills .nav-link.active {
+    background-color: var(--bs-secondary) !important;
+    color: white;
+}
+
+.nav-pills .nav-link {
+    color: var(--bs-secondary);
+}
+
+.nav-pills .nav-link:hover {
+    color: white;
+    background-color: var(--bs-secondary);
+}
