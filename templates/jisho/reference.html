@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+    <a class="home-title" href="{{ url_for('jisho') }}"><h1 class="mb-3 mt-3 sacramento-regular">jisho</h1></a>
+    <div class="w-25 mt-4">
+        <p class="justified-text">This is inspired by the <a href="https://jisho.org/" target="_blank">jisho.org</a> Japanese-English web dictionary.
+            For more information regarding search options, you can visit their official <a href="https://jisho.org/docs" target="_blank">documentation</a>.
+            They also have a <a href="https://jisho.org/forum" target="_blank">forum</a> page for further discussions.
+        </p>
+        <p class="justified-text">This is created through <a href="https://flask.palletsprojects.com/en/3.0.x/" target="_blank">Flask</a>, a popular web framework in Python.
+            The Python API <a href="https://pypi.org/project/jisho-api/" target="_blank">jisho-api</a> is also used to retreive information regarding the requested keyword.
+            The latest version of <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> framework was also used as the frontend toolkit.
+        </p>
+        <p class="justified-text">Visit the<a href="#" target="_blank">repository</a>, and feel free to be a contributor!
+            This site is hosted through <a href="https://www.pythonanywhere.com/" target="_blank">PythonAnywhere</a>.
+            If you have inquiries, please email me at <a href="mailto:marinoalaica@gmail.com?subject=[jisho]%20Inquiry">marinoalaica@gmail.com</a>.
+        </p>
+    </div>
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        {% include 'jisho/footer.html' %}
+    </div>
+{% endblock %}

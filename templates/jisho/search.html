@@ -1,0 +1,14 @@
+<div class="home-search">
+    <a class="home-title" href="{{ url_for('jisho') }}"><h1 class="mb-3 mt-3 sacramento-regular">jisho</h1></a>
+    <form id="search-form" method="post" action="{{ url_for('search_keyword') }}">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="English, Japanese, Romaji, words or text" aria-label="keyword" name="keyword" id="keyword-input" aria-describedby="button-addon2" value="{{ data.curr_search }}">
+            <button type="button" class="btn btn-outline-secondary" id="clear-button">
+                <i class="bi bi-x-circle"></i>
+            </button>
+            <button type="submit" class="btn btn-outline-secondary" id="button-addon2">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </form>
+</div>

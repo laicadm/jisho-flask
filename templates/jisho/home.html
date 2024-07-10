@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block content %}
+    {% include 'jisho/search.html' %}
+    {% if data.res and not data.error %}
+    <ul class="nav nav-pills mt-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Results</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Sample Sentences</button>
+        </li>
+    </ul>
+    <div class="tab-content w-50" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+            {% for item in data.res %}
+                <div class="card mt-4">
+                    {% if item.japanese %}
+                    <h3 class="card-header noto-serif-jp"><b>{{ item.japanese.word }}</b> ({{ item.japanese.reading }})</h3>
+                    {% endif %}
+                    <div class="card-body">
+                    {% if item.is_common %}
+                    <span class="badge rounded-pill bg-warning mb-3">COMMON WORD</span>
+                    {% endif %}
+                    {% if item.wanikani %}
+                    <span class="badge rounded-pill bg-info mb-3">WANIKANI L{{item.wanikani}}</span>
+                    {% endif %}
+                    {% if item.jlpt %}
+                    <span class="badge rounded-pill bg-primary mb-3">JLPT N{{item.jlpt}}</span>
+                    {% endif %}
+                    {% if item.english_def %}
+                        {% for e in item.english_def %}
+                        <div class="d-flex flex-column mb-3">
+                            <h6 class="pos-badge">{{ e[-1] | replace('"', "") | replace("'", "") }}</h6>
+                            <p class="card-text">{{ loop.index }}. {{ e[:-1] | replace('("', "") | replace('",)', "") | replace("'", "") | replace("(\\", "") | replace("\\", "") | replace(",)", "") }} </p>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+            {% if data.sentence %}
+            {% for item in data.sentence %}
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="d-flex flex-column">
+                        <h6 class="sentence-jpn noto-serif-jp">「{{ loop.index }}」{{ item.japanese }}</h6>
+                        <p>{{ item.en_translation }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="mt-4">
+                <p class="mt-4 justified-text text-center">Oops! No available example.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% elif not data.res and data.error %}
+        <div class="w-25 mt-4 no-result">
+            <img src="{{ url_for('static', filename='img/no_result.gif') }}" alt="no result" class="img-fluid">
+            <p class="justified-text">Keyword does not exist! Please search another again.</p>
+        </div>
+    {% else %}
+        <div class="w-25 mt-4">
+            <p class="justified-text">Jisho is a powerful Japanese-English dictionary. It lets you find words, kanji, example sentences and more quickly and easily.</p>
+            <p class="justified-text">Enter any Japanese text or English word in the search box and Jisho will search a myriad of data for you.</p>
+            <p class="justified-text">Here's a few example searches to give you a taste of what Jisho can do.</p>
+            <ul class="list-group">
+                <li class="list-group-item">Great English search: <a href="#" id="dynamic-search-1" data-keyword="house" data-url="{{ url_for('search_keyword', keyword='house') }}">house</a></li>
+                <li class="list-group-item">Multi word search: <a href="#" id="dynamic-search-2" data-keyword="日 sunlight" data-url="{{ url_for('search_keyword', keyword='日 sunlight') }}">日 sunlight</a></li>
+                <li class="list-group-item">Inflection information: <a href="#" id="dynamic-search-3" data-keyword="走った" data-url="{{ url_for('search_keyword', keyword='走った') }}">走った</a></li>
+                <li class="list-group-item">JLPT N3 adjectives: <a href="#" id="dynamic-search-4" data-keyword="#jlpt-n3 #adjective" data-url="{{ url_for('search_keyword', keyword='#jlpt-n3 #adjective') }}">#jlpt-n3 #adjective</a></li>
+                <li class="list-group-item">Common words that end with 家: <a href="#" id="dynamic-search-5" data-keyword="#word #common ?*家" data-url="{{ url_for('search_keyword', keyword='#word #common ?*家') }}">#word #common ?*家</a></li>
+            </ul>
+        </div>
+    {% endif %}
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        {% include 'jisho/footer.html' %}
+    </div>
+{% endblock %}
