@@ -55,3 +55,7 @@
     color: white;
     background-color: var(--bs-secondary);
 }
+
+.card-header {
+    margin-top: -2px !important;
+}

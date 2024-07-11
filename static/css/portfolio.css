@@ -1,3 +1,8 @@
 .w3-container {
     padding: 128px 16px;
 }
+
+.no-hyperlink {
+    text-decoration: none;
+    color: inherit; 
+}
