@@ -1,7 +1,6 @@
 # Jisho ウェブ辞書
-A Japanese-English web dictionary for you and me.
 
-## ![EN](https://cdn-icons-png.flaticon.com/128/10576/10576632.png)
+## English
 
 ### About
 
