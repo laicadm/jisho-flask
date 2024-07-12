@@ -2,14 +2,14 @@
 {% block content %}
     {% include 'portfolio/navbar.html' %}
     <!-- Header -->
-    <header class="w3-container w3-red w3-center w-100">
-    <h1 class="w3-margin w3-jumbo">Jisho | 辞書</h1>
-    <p class="w3-xlarge">何を検索したいですか?</p>
-    <a href="{{ url_for('jisho') }}"><button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</button></a>
+    <header class="my-header w3-container w3-center w-100">
+    <h1 class="text-title">みんなの辞書</h1>
+    <p class="text-desc">どんな言葉を考えていますか?</p>
+    <a href="#info"><button class="w3-button w3-white w3-padding-large w3-large w3-margin-top text-btn">情報を見る</button></a>
     </header>
 
     <!-- First Grid -->
-    <div class="w3-row-padding w3-padding-64 w3-container w-100">
+    <div class="about-div w3-row-padding w3-padding-64 w3-container w-100" id="info">
     <div class="w3-content">
         <div class="w3-twothird">
         <h1>About Web 辞書</h1>
@@ -29,7 +29,7 @@
     </div>
 
     <!-- Second Grid -->
-    <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container w-100">
+    <div class="feature-div w3-row-padding w3-light-grey w3-padding-64 w3-container w-100">
     <div class="w3-content">
         <div class="w3-third w3-center">
             <img src="{{ url_for('static', filename='gif/coffee.gif') }}" width="60%" height="60%" alt="running cat" class="img-fluid">
