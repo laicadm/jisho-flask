@@ -6,16 +6,26 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    max-width: 70%;
+    padding: 0 15px;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .input-group {
-    min-width: 600px;
+    min-width: 400px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .home-title {
     color: inherit;
     text-decoration: none;
     cursor: pointer;
+    display: inline-block;
 }
 
 .sacramento-regular {
@@ -58,4 +68,41 @@
 
 .card-header {
     margin-top: -2px !important;
+}
+
+.content-span {
+    width: 100%;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* tablet screens */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .content-span {
+        max-width: 50%;
+    }
+    .input-group {
+        min-width: 500px;
+    }
+
+}
+
+/* sample custom span width for a specific class */
+@media (min-width: 768px) {
+    .content-span {
+        max-width: 50%;
+    }
+    .input-group {
+        min-width: 400px;
+    }
+}
+
+/* larger screens */
+@media (min-width: 1024px) {
+    .content-span {
+        max-width: 30%;
+    }
+    .input-group {
+        min-width: 600px;
+    }
 }

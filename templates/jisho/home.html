@@ -2,7 +2,7 @@
 {% block content %}
     {% include 'jisho/search.html' %}
     {% if data.res and not data.error %}
-    <ul class="nav nav-pills mt-3" id="pills-tab" role="tablist">
+    <ul class="nav nav-pills mt-3 justify-content-center" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
           <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Results</button>
         </li>
@@ -10,7 +10,7 @@
           <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Sample Sentences</button>
         </li>
     </ul>
-    <div class="tab-content w-50" id="pills-tabContent">
+    <div class="tab-content mx-auto content-span" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
             {% for item in data.res %}
                 <div class="card mt-4">
@@ -59,12 +59,12 @@
         </div>
     </div>
     {% elif not data.res and data.error %}
-        <div class="w-25 mt-4 no-result">
+        <div class="mx-auto mt-4 no-result text-center content-span">
             <img src="{{ url_for('static', filename='img/no_result.gif') }}" alt="no result" class="img-fluid">
             <p class="justified-text">Keyword does not exist! Please search another again.</p>
         </div>
     {% else %}
-        <div class="w-25 mt-4">
+        <div class="mx-auto mt-4 content-span">
             <p class="justified-text">Jisho is a powerful Japanese-English dictionary. It lets you find words, kanji, example sentences and more quickly and easily.</p>
             <p class="justified-text">Enter any Japanese text or English word in the search box and Jisho will search a myriad of data for you.</p>
             <p class="justified-text">Here's a few example searches to give you a taste of what Jisho can do.</p>

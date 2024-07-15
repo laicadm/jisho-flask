@@ -36,9 +36,10 @@ document.addEventListener('DOMContentLoaded', function() {
         var keywordInput = document.getElementById('keyword-input').value;
         if (keywordInput != "") {
             var formAction = this.action;
-            var newAction = formAction + '?keyword=' + encodeURIComponent(keywordInput);
-        
-            this.action = newAction;
+            var url = new URL(formAction);
+            url.searchParams.delete('keyword');
+            url.searchParams.set('keyword', encodeURIComponent(keywordInput));
+            this.action = url.toString();
             this.submit();
         }
     }
