@@ -44,3 +44,8 @@
     text-decoration: none;
     color: inherit; 
 }
+
+.justified {
+    text-align: justify;
+    text-justify: inter-word;
+}
