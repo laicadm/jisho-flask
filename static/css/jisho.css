@@ -102,7 +102,7 @@
 /* larger screens */
 @media (min-width: 1024px) {
     .content-span {
-        max-width: 30%;
+        max-width: 40%;
     }
     .input-group {
         min-width: 600px;
