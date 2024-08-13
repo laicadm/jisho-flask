@@ -59,6 +59,8 @@
 
 .nav-pills .nav-link {
     color: var(--bs-secondary);
+    border: 1px solid var(--bs-secondary);
+    margin-left: 4px;
 }
 
 .nav-pills .nav-link:hover {

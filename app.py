@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from jisho_api.word import Word
 import controller as c
+import helpers  as h
 from jisho_api.sentence import Sentence
 
 app = Flask(__name__)
@@ -36,7 +37,7 @@ def search_keyword():
                     "is_common": c.is_common(response_str),
                     "wanikani": c.get_wanikani(response_str),
                     "jlpt": c.get_jlpt(response_str),
-                    "english_def": c.get_english_def(response_str)
+                    "english_def": [(h.clean_string(item[0]), item[1]) for item in c.get_english_def(response_str)]
                 }
                 data['res'].append(item_data)
             data['sentence'] = c.get_sentences(s)
@@ -45,7 +46,7 @@ def search_keyword():
             data['error'] = True
             print(e)
 
-        print(data['sentence'])
+        print(data['res'])
         return render_template('jisho/home.html', data=data)
 
 @app.route('/jisho/reference')

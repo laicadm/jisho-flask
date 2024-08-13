@@ -22,3 +22,6 @@ def create_pairs_dict(phrase, pos):
     }
     
     return pairs_dict
+
+def clean_string(s):
+    return s.replace('"', "").replace("'", "").replace('",)', "").replace("(\\", "").replace("\\", "").replace(",)", "").replace('("', "")
