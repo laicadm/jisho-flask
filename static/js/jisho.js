@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var formAction = this.action;
             var url = new URL(formAction);
             url.searchParams.delete('keyword');
-            url.searchParams.set('keyword', encodeURIComponent(keywordInput));
+            url.searchParams.set('keyword', keywordInput);
             this.action = url.toString();
             this.submit();
         }

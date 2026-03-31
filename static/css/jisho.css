@@ -7,11 +7,13 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 70%;
-    padding: 0 15px;
     box-sizing: border-box;
     text-align: center;
     margin: 0 auto;
+}
+
+.fixed-top {
+    background-color: white;
 }
 
 .input-group {
@@ -70,6 +72,16 @@
 
 .card-header {
     margin-top: -2px !important;
+}
+
+.content {
+    position: absolute;
+    overflow-y: auto;
+    top: 24vh;     
+    bottom: 16vh; 
+    left: 0;
+    right: 0;
+    background-color: white;
 }
 
 .content-span {
