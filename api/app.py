@@ -1,13 +1,20 @@
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
 from flask import Flask, render_template, request
 from jisho_api.word import Word
 import controller as c
 import helpers  as h
 from jisho_api.sentence import Sentence
 
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    template_folder="../templates",
+    static_folder="../static"
+)
 
 # jisho
-
 @app.route('/jisho')
 def jisho():
     data = {
