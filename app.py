@@ -65,6 +65,6 @@ def home():
     }
     return render_template('portfolio/home.html', data=data)
 
-
+# debug mode
 if __name__ == '__main__':
     app.run(debug=True)
